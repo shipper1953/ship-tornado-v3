@@ -1,40 +1,36 @@
-#!/bin/bash
+#!/bin/zsh
+
+set -e
 
 echo "▶️ Installing NVM..."
 
-# Download and run nvm installer
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+export NVM_DIR="$HOME/.nvm"
+if [ ! -d "$NVM_DIR" ]; then
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+fi
+
+# Load NVM
+export NVM_DIR="$HOME/.nvm"
+[[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
+[[ -s "$NVM_DIR/bash_completion" ]] && source "$NVM_DIR/bash_completion"
 
 echo "✅ NVM installed."
 
-echo "📦 Configuring your ~/.zshrc..."
-
-# Ensure nvm loads automatically in zsh
-cat << 'EOF' >> ~/.zshrc
-
-# Load NVM automatically
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-EOF
-
-# Reload zshrc in current session
-source ~/.zshrc
-
-echo "🚀 Installing latest LTS Node version..."
+echo "📦 Ensuring Node LTS is installed..."
 nvm install --lts
 nvm use --lts
-nvm alias default node
+nvm alias default 'lts/*'
 
 echo "✅ Node.js version: $(node -v)"
 echo "✅ NPM version: $(npm -v)"
 
-echo "📄 Creating .nvmrc with current node version..."
+echo "📄 Creating .nvmrc with current Node version..."
 node -v > .nvmrc
 
-echo "💡 Optional: Add automatic `.nvmrc` switching to your shell"
-cat << 'EOF' >> ~/.zshrc
+echo "💡 Adding automatic Node version switching to ~/.zshrc (if not already present)..."
+grep -q 'load-nvmrc' ~/.zshrc || cat << 'EOF' >> ~/.zshrc
 
+# Auto-switch node versions using .nvmrc
 autoload -U add-zsh-hook
 
 load-nvmrc() {

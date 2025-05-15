@@ -25,5 +25,3 @@ dist/
 # Git
 .git/
 
-# Optional: prevent accidental submodule issues
-ship_tornado_frontend/

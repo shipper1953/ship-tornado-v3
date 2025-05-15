@@ -1,0 +1,9 @@
+/* index.css */
+@import "tailwindcss";
+
+/* Your custom styles last */
+@import "./components.css";
+
+body {
+  @apply bg-gray-50 text-gray-900 font-sans;
+}

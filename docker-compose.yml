@@ -1,0 +1,51 @@
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: ship-backend
+    ports:
+      - "5001:5001"
+    env_file:
+      - ./backend/.env
+    depends_on:
+      - postgres
+      - redis
+    command: npm start
+    volumes:
+      - ./backend:/app
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.prod  # Change to Dockerfile.prod if customized
+    container_name: ship-frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+    # For development; remove for prod
+    #volumes:
+    #  - ./frontend:/app
+
+  postgres:
+    image: postgres:14
+    container_name: ship-postgres
+    environment:
+      POSTGRES_USER: shiptornado
+      POSTGRES_PASSWORD: devpassword
+      POSTGRES_DB: shiptornado_dev
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:7
+    container_name: ship-redis
+    ports:
+      - "6379:6379"
+
+volumes:
+  pgdata:

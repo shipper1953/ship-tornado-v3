@@ -1,5 +1,5 @@
 // scripts/printTables.js
-const knexConfig = require('../../backend_archive/knexfile');
+const knexConfig = require('../../knexfile');
 const knex = require('knex')(knexConfig.development);
 
 async function main() {

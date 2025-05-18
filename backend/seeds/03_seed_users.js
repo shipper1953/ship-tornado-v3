@@ -1,5 +1,5 @@
 const bcrypt = require("bcrypt");
-const { v4: uuidv4 } = require("uuid");
+// Removed unused uuidv4 import
 
 exports.seed = async function (knex) {
   console.log("🌱 Seeding users...");

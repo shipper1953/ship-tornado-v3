@@ -1,4 +1,4 @@
-const knex = require('../../../backend_archive/db');
+const knex = require('../db');
 
 exports.getAllRoles = async (req, res) => {
   try {

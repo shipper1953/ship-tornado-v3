@@ -1,9 +1,161 @@
-/* index.css */
-@import "tailwindcss";
 
-/* Your custom styles last */
-@import "./components.css";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-body {
-  @apply bg-gray-50 text-gray-900 font-sans;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 215 75% 24%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 222 84% 5%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 215 75% 24%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 214 90% 67%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 215 65% 34%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 215 65% 34%;
+    --sidebar-ring: 214 90% 67%;
+  }
+  .dark {
+    --background: 222 47% 11%;        /* Dark blue/black background */
+    --foreground: 210 40% 98%;        /* Light gray text */
+
+    --card: 222 47% 14%;              /* Darker card background */
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 11%;           /* Dark popover */
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 214 90% 67%;           /* Lighter blue primary for dark mode */
+    --primary-foreground: 222 47% 11%; /* Darker text on primary */
+
+    --secondary: 222 47% 18%;         /* Dark secondary */
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 222 47% 18%;             /* Dark muted */
+    --muted-foreground: 215 16% 67%;  /* Lighter muted text */
+
+    --accent: 222 47% 18%;            /* Dark accent */
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 72% 51%;         /* Darker red for destructive */
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 215 28% 27%;           /* Darker border */
+    --input: 215 28% 27%;            /* Darker input field border */
+    --ring: 214 90% 67%;             /* Lighter ring color for dark mode */
+    
+    /* Custom sidebar variables (dark theme) */
+    /* You might want to adjust these to fit your dark theme preference for the sidebar */
+    --sidebar-background: 222 47% 9%;  /* Very dark sidebar background */
+    --sidebar-foreground: 210 40% 90%; /* Slightly dimmer light text on sidebar */
+    --sidebar-primary: 214 80% 70%;    /* Adjusted primary for sidebar */
+    --sidebar-primary-foreground: 222 47% 11%; /* Darker text on sidebar primary */
+    --sidebar-accent: 222 47% 20%;     /* Darker accent for sidebar */
+    --sidebar-accent-foreground: 210 40% 90%;
+    --sidebar-border: 222 47% 20%;
+    --sidebar-ring: 214 80% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+@layer components {
+  .tms-card {
+    @apply bg-white rounded-lg shadow-sm border border-border p-4 transition-all hover:shadow-md;
+  }
+  
+  .tms-stat-card {
+    @apply tms-card flex flex-col;
+  }
+  
+  .tms-stat-value {
+    @apply text-2xl font-bold text-tms-blue;
+  }
+  
+  .tms-stat-label {
+    @apply text-sm text-muted-foreground;
+  }
+  
+  .tms-badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  
+  .tms-badge-blue {
+    @apply bg-tms-blue-100 text-tms-blue;
+  }
+  
+  .tms-badge-amber {
+    @apply bg-amber-100 text-amber-800;
+  }
+  
+  .tms-badge-green {
+    @apply bg-green-100 text-green-800;
+  }
+  
+  .tms-gradient-bg {
+    @apply bg-gradient-to-r from-tms-blue to-tms-blue-400;
+  }
+  
+  .tms-section-title {
+    @apply text-lg font-semibold text-tms-blue mb-4;
+  }
+}
+
+/* Tornado Animation Keyframes */
+@keyframes tornado-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes tornado-move {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(180deg); }
+  100% { transform: translateY(0) rotate(360deg); }
+}
+
+.tornado-spin {
+  animation: tornado-spin 2s linear infinite;
+}
+
+.tornado-move {
+  animation: tornado-move 3s ease-in-out infinite;
 }

@@ -1,12 +1,12 @@
-// ship-tornado-v3/frontend/tailwind.config.js
-/** @type {import('tailwindcss').Config} */
-export default {
-  darkMode: ["class"],
+import type { Config } from 'tailwindcss'
+import colors from 'tailwindcss/colors'
+
+const config: Config = {
   content: [
     "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}", // Ensures all your React files are scanned
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  prefix: "", // From route-vision-ui
+  prefix: "",
   theme: {
     container: {
       center: true,
@@ -17,7 +17,7 @@ export default {
       fontFamily: {
         sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
-      colors: { /* All color definitions from route-vision-ui's tailwind.config.js */
+      colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
@@ -62,4 +62,6 @@ export default {
     }
   },
   plugins: [require("tailwindcss-animate")],
-};
+}
+
+export default config

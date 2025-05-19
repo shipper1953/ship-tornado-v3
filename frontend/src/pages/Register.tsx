@@ -1,14 +1,18 @@
 import AuthForm from "../components/AuthForm";
-import { register } from "../api/auth";
+import { registerAPI } from "../api/auth";
 
 export default function Register() {
-  const handleRegister = async (e, data) => {
-    e.preventDefault();
+  const handleRegister = async (formData: { email: string; password: string; company_id: string }) => {
     try {
-      const res = await register(data);
+      const res = await registerAPI(formData);
       alert("Registered!");
     } catch (err) {
-      alert(err.response?.data?.error || "Registration failed");
+      if (err && typeof err === "object" && "response" in err) {
+        // @ts-ignore
+        alert((err as any).response?.data?.error || "Registration failed");
+      } else {
+        alert("Registration failed");
+      }
     }
   };
 

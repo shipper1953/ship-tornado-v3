@@ -11,14 +11,14 @@ export default function Login() {
     password: ""
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       const res = await fetch("http://localhost:5001/api/auth/login", {
@@ -34,7 +34,7 @@ export default function Login() {
       setToken(token);
       setUser(user);
       navigate("/dashboard");
-    } catch (error) {
+    } catch (error: any) {
       alert("Login failed: " + error.message);
     }
   };

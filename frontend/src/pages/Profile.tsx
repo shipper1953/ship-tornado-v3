@@ -2,7 +2,7 @@
 import React, { ReactNode, JSX } from 'react';
 import Layout from '../components/Layout'; // Ensure Layout.tsx accepts and renders children
 import { useAuth, type UserType } from '../context/AuthContext'; // Import UserType
-import { LoadingPage } from '../transitions/LoadingPage'; // Assuming path is src/components/LoadingPage.tsx
+import { LoadingPage } from '../components/LoadingPage'; // Assuming path is src/components/LoadingPage.tsx
 
 // Define LayoutProps here if not imported or defined in Layout.tsx
 // interface LayoutProps { children: ReactNode; }

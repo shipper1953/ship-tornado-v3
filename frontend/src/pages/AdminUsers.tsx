@@ -4,7 +4,7 @@ import Layout from '../components/Layout'; // Ensure Layout.tsx accepts and rend
 import apiClient from '@/api/fetchWithAuth'; // Use the configured Axios instance
 import type { UserType } from '@/context/AuthContext'; // Import UserType from AuthContext
 import type { AxiosResponse, AxiosError } from 'axios';
-import { LoadingPage } from '@/transitions/LoadingPage'; // Assuming path
+import { LoadingPage } from '../components/LoadingPage'; // Assuming path
 
 // Define what the API response for users list looks like
 // This should match what your backend /api/admin/users endpoint returns

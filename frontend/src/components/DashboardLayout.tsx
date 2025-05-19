@@ -3,7 +3,7 @@ import React, { JSX } from 'react';
 import { Outlet, Navigate } from 'react-router-dom';
 import { TmsLayout } from './layout/TmsLayout';
 import { useAuth } from '../context/AuthContext'; // Ensure AuthContext types are solid
-import { LoadingPage } from './transitions/LoadingPage'; // Assuming LoadingPage.tsx is now in src/components/
+import { LoadingPage } from './LoadingPage'; // Assuming LoadingPage.tsx is now in src/components/
 
 const DashboardLayout = (): JSX.Element => {
   const { user, loading: authLoading } = useAuth();

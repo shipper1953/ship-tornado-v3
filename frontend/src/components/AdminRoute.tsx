@@ -2,7 +2,7 @@
 import React, { ReactNode, JSX } from 'react'; // Ensure React and ReactNode are imported
 import { Navigate, Outlet } from "react-router-dom";
 import { useAuth, UserType } from "../context/AuthContext"; // Import UserType
-import { LoadingPage } from './transitions/LoadingPage';
+import { LoadingPage } from './LoadingPage';
 
 export interface AdminRouteProps {
   children?: ReactNode; // To wrap specific components

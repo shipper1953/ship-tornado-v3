@@ -14,7 +14,7 @@ import PrivateRoute from './components/PrivateRoute';
 import AdminRoute from './components/AdminRoute'; 
 
 // Loading & Pages
-import { LoadingPage } from './transitions/LoadingPage'; // Corrected path
+import { LoadingPage } from './components/LoadingPage'; // Corrected path
 
 const LandingPage = lazy(() => import('./pages/Landing'));
 const LoginPage = lazy(() => import('./pages/Login'));
@@ -52,10 +52,10 @@ const AppRoutes = (): JSX.Element => {
           <Route path="/unauthorized" element={<UnauthorizedPage />} />
         </Route>
 
-        <Route element={<AuthLayout />}> {/* AuthLayout should render <Outlet /> */}
+        <Route element={<AuthLayout><React.Suspense fallback={<LoadingPage />}><Routes>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
-        </Route>
+        </Routes></React.Suspense></AuthLayout>} />
 
         <Route element={<PrivateRoute />}>
           <Route element={<DashboardLayout />}> {/* Renders <Outlet /> inside TmsLayout */}

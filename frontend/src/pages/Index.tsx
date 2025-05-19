@@ -1,5 +1,5 @@
 // src/pages/Index.tsx (Assuming this is the intended location and filename for your main dashboard)
-import React from 'react'; // Added React import
+import React, {JSX} from 'react'; // Added React import
 import { Package, Truck, Clock, DollarSign } from "lucide-react";
 import { TmsLayout } from "@/components/layout/TmsLayout";
 import { StatCard } from "@/components/dashboard/StatCard";       // Ensure these components are copied and typed

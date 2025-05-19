@@ -1,6 +1,6 @@
 // src/controllers/authController.js
 const authService = require('../services/authService');
-const db = require('../db');
+const db = require('../../db');
 
 exports.register = async (req, res) => {
   const { email, password, company_id, role_id } = req.body;

@@ -1,7 +1,7 @@
 // src/services/authService.js
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const db = require('../db'); // ✅ Correct relative path to DB
+const db = require('../../db'); // ✅ Correct relative path to DB
 
 const login = async ({ email, password }) => {
   const user = await db('users')

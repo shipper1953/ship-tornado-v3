@@ -7,3 +7,7 @@ Dockerfile*
 .env
 *.md
 .vscode
+logs
+coverage
+tmp
+uploads

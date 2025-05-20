@@ -1,9 +1,9 @@
-// ship-tornado-v3/frontend/src/main.jsx
+// ship-tornado-v3/frontend/src/main.tsx
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App.jsx';
+import App from './App';
 import './styles/index.css'; // Your updated global styles
-import { ThemeProvider } from './components/theme/theme-provider.jsx'; // Import your new ThemeProvider
+import { ThemeProvider } from './components/theme/theme-provider'; // Import your new ThemeProvider
 
 const rootElement = document.getElementById('root');
 if (rootElement) {

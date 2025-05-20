@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react-swc';
 import path from 'path';
 
 export default defineConfig({
-  base: '/', // 👈 important for correct asset paths in Docker
+  base: '/',
   build: {
     outDir: 'dist',
   },

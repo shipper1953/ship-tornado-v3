@@ -51,12 +51,10 @@ const AppRoutes = (): JSX.Element => {
           <Route path="/" element={<LandingPage />} />
           <Route path="/unauthorized" element={<UnauthorizedPage />} />
         </Route>
-
-        <Route element={<AuthLayout><React.Suspense fallback={<LoadingPage />}><Routes>
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-        </Routes></React.Suspense></AuthLayout>} />
-
+        <Route path="/" element={<AuthLayout />}>
+          <Route path="login" element={<LoginPage />} />
+          <Route path="register" element={<RegisterPage />} />
+        </Route>
         <Route element={<PrivateRoute />}>
           <Route element={<DashboardLayout />}> {/* Renders <Outlet /> inside TmsLayout */}
             <Route index element={<Navigate to="/dashboard" replace />} />

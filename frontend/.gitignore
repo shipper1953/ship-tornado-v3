@@ -25,3 +25,5 @@ dist/
 # Git
 .git/
 
+
+*storybook.log

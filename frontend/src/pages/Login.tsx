@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
 export default function Login() {
+  console.log("Login component rendered");
   const navigate = useNavigate();
   const { setUser, setToken } = useAuth();
 

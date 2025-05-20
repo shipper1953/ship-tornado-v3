@@ -1,28 +1,34 @@
-// ship-tornado-v3/frontend/tsconfig.json
 {
-    "compilerOptions": {
-      "target": "ESNext",
-      "useDefineForClassFields": true,
-      "lib": ["DOM", "DOM.Iterable", "ESNext"],
-      "allowJs": true, // IMPORTANT: Allows JavaScript files to co-exist
-      "skipLibCheck": true,
-      "esModuleInterop": true,
-      "allowSyntheticDefaultImports": true,
-      "strict": true, // Enforces stricter type checking (recommended)
-      "forceConsistentCasingInFileNames": true,
-      "module": "ESNext",
-      "moduleResolution": "bundler", // Recommended for Vite
-      "resolveJsonModule": true,
-      "isolatedModules": true,
-      "noEmit": true, // Vite handles building, TS for type checking
-      "jsx": "react-jsx", // Uses the new JSX transform
-  
-      /* Path Aliases */
-      "baseUrl": ".", // Base directory for the paths below
-      "paths": {
-        "@/*": ["src/*"] // Defines the @/* alias to point to the src/ directory
-      }
-    },
-    "include": ["src", "**/*.ts", "**/*.tsx", "vite.config.js", "tailwind.config.js", "postcss.config.js"], // Files for TypeScript to check
-    "exclude": ["node_modules", "dist"] // Folders to ignore
-  }
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+  "include": [
+    "src",
+    "**/*.ts",
+    "**/*.tsx",
+    "vite.config.ts",
+    "tailwind.config.ts",
+    "postcss.config.cjs",
+    ".storybook",
+    "stories/**/*.tsx"
+  ],
+  "exclude": ["node_modules", "dist", "coverage"]
+}

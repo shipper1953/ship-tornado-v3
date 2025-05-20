@@ -1,12 +1,14 @@
-// Updated ship-tornado-v3/frontend/vite.config.js (or .ts)
+// vite.config.ts
 import { defineConfig } from 'vite';
-import reactSWC from '@vitejs/plugin-react-swc'; // 👈 Import the new plugin
+import react from '@vitejs/plugin-react-swc';
 import path from 'path';
 
 export default defineConfig({
-  plugins: [
-    reactSWC() // 👈 Use the new plugin here
-  ],
+  base: '/', // 👈 important for correct asset paths in Docker
+  build: {
+    outDir: 'dist',
+  },
+  plugins: [react()],
   server: {
     port: 3000,
     proxy: {
